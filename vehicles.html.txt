@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Available Vehicles</h2>
+
+<div>
+    <a href="/vehicles">All</a>
+    <a href="/search?type=Car">Car</a>
+    <a href="/search?type=Bike">Bike</a>
+    <a href="/search?type=Cycle">Cycle</a>
+</div>
+
+<hr>
+
+{% if vehicles %}
+    <ul>
+    {% for vehicle in vehicles %}
+        <li>
+            <b>{{ vehicle.name }}</b><br>
+            Type: {{ vehicle.type }}<br>
+            Price: {{ vehicle.price }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No vehicles found</p>
+{% endif %}
+
+{% endblock %}
