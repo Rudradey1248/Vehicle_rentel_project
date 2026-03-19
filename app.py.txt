@@ -6,8 +6,6 @@ app = Flask(__name__)
 @app.route('/search')
 def search():
     vtype = request.args.get('type')
-
-    # database থেকে vehicle filter
     vehicles = Vehicle.query.filter_by(type=vtype, availability=True).all()
 
     return render_template('vehicles.html', vehicles=vehicles)
